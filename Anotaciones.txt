@@ -1,0 +1,40 @@
+Back, controllers estan los metodos de llamadas a mysql
+routes tendra las rutas
+database, configuracion de la base de datos
+
+Color background gris:
+background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+Color navbar:
+className="navbar navbar-expand-lg navbar-light rounded-3"
+style={{ backgroundColor: "#EFF3F3" }}
+
+------------------------------------------------------------------------------------------------
+Scripts
+CREATE DATABASE `ng_products_db`;
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `quantity` float DEFAULT NULL,
+  `productType` char(1) DEFAULT NULL,
+  `purchasePrice` float DEFAULT NULL,
+  `sellingPrice` float DEFAULT NULL,
+  `creat_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1
+
+CREATE TABLE `sales` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client` varchar(100) DEFAULT NULL,
+  `product` varchar(100) DEFAULT NULL,
+  `quantity` float DEFAULT NULL,
+  `paid` tinyint(4) DEFAULT NULL,
+  `creat_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `idProduct` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idProduct` (`idProduct`),
+  CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1

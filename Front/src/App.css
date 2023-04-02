@@ -1,0 +1,12 @@
+footer {
+    font-weight: 300;
+}
+/* Animated para tablas */
+.animate__animated.animate__fadeIn {
+    --animate-duration: 2000ms;
+}
+
+/* Animated para alerts */
+.animate__animated.animate__bounceOut {
+    --animate-duration: 3000ms;
+}

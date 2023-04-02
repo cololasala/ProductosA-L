@@ -1,0 +1,4 @@
+a {         /* como Link es un tipo especial de anchor tag puede tomar estos estilos*/
+    margin-right: 10px;
+    text-decoration: none;
+}
